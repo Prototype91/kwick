@@ -2,29 +2,35 @@
 
     'use strict';
 
+    const token = "7edd4c1c31038908d39c7227bd4269b8";
+
     const $form = $("#signup-form");
 
-    $form.on('submit', function(e) {
+    $form.on('submit', function (e) {
         createAccount(e);
     });
 
     function createAccount(e) {
         e.preventDefault();
-        const $email = $("#email-input").val();
+        const $pseudo = $("#pseudo-input").val();
         const $password = $("#password-input").val();
-        console.log($email, $password);
+        console.log($pseudo.length, $password.length);
 
-        $.ajax({
-            url: `http://greenvelvet.alwaysdata.net/kwick/api/signup/${$email}/${$password}`,
-            method: 'GET',
-            dataType: 'jsonp'
-        })
-        .then((response) => {
-            console.log(response)
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+        if ($pseudo.length > 0 && $password.length > 0) {
+            console.log('ok');
+            $.ajax({
+                url: `http://greenvelvet.alwaysdata.net/kwick/api/signup/${$pseudo}/${$password}`,
+                method: 'GET',
+                dataType: 'jsonp'
+            })
+                .then((response) => {
+                    console.log(response);
+                    // document.location.href="../login.html"; 
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        }
     }
 
 })(jQuery);
