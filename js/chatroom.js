@@ -7,6 +7,22 @@
     const $messages = $('#messages-section');
     const $logged_users = $('#logged-users');
     const $send_message_form = $('#send-message-form');
+    const $logout_button = $('#logout');
+
+    $logout_button.on('click', (e) => {
+        e.preventDefault();
+        $.ajax({
+            url: `http://greenvelvet.alwaysdata.net/kwick/api/logout/${user_data.token}/${user_data.id}`,
+            method: 'GET',
+            dataType: 'jsonp'
+        })
+            .then((response) => {
+                console.log('logout', response);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    })
 
     $send_message_form.on('submit', function(e) {
         sendMessage(e);
