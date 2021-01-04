@@ -22,6 +22,11 @@
             })
                 .then((response) => {
                     console.log(response);
+                    const user_data = {
+                        id: response.result.id,
+                        token : response.result.token
+                    }
+                    sessionStorage.setItem('chatroom', JSON.stringify(user_data));
                 })
                 .catch((error) => {
                     console.log(error);

@@ -2,8 +2,6 @@
 
     'use strict';
 
-    const token = "7edd4c1c31038908d39c7227bd4269b8";
-
     const $form = $("#signup-form");
 
     $form.on('submit', function (e) {
