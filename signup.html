@@ -7,21 +7,22 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/signup.css">
+    <script defer src="https://unpkg.com/jquery"></script>
     <script defer src="js/signup.js"></script>
 </head>
 <body>
     <main id="main-ctn">
         <h1>Création de votre compte :</h1>
-        <form>
+        <form id="signup-form">
             <p>
                 <i class="fas fa-paper-plane"></i>
-                <input type="email" placeholder="e-mail">
+                <input id="email-input" type="email" placeholder="e-mail">
             </p>
             <p>
                 <i class="fas fa-key"></i>
-                <input type="password" placeholder="Mot de Passe">
+                <input id="password-input" type="password" placeholder="Mot de Passe">
             </p>
-            <button>Créer</button>
+            <input type="submit">
         </form>
     </main>
 </body>
