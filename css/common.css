@@ -1,15 +1,7 @@
-* {
-    box-sizing: border-box;
-}
-
-html {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 body {
-    width: 100%;
+    margin: 0;
     height: 100%;
     background: -webkit-radial-gradient(0% 100%,
             ellipse cover,
@@ -20,12 +12,11 @@ body {
             rgba(42, 60, 87, 0.4) 100%),
         linear-gradient(135deg, #670d10 0%, #092756 100%);
     background-attachment: fixed;
-    background-origin: inital;
-    background-repeat: no repeat;
 }
 
 p,
 a,
-h1 {
+h1,
+h2 {
     color: white;
 }

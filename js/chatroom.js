@@ -25,7 +25,7 @@
             })
     })
 
-    $send_message_form.on('submit', function(e) {
+    $send_message_form.on('submit', function (e) {
         sendMessage(e);
     });
 
@@ -36,7 +36,7 @@
     })
         .then((response) => {
             const users = response.result.user;
-            for(let i = 0; i < users.length; i++) {
+            for (let i = 0; i < users.length; i++) {
                 $logged_users.append(`
                 <p>${users[i]}</p>
                 `);
@@ -71,8 +71,6 @@
         .then((response) => {
             const talk_list = response.result.talk;
             const pseudo = user_data.pseudo;
-            const id = user_data.id;
-            const token = user_data.token
             console.log(user_data);
 
             for (let i = 0; i < talk_list.length; i++) {
@@ -80,7 +78,7 @@
                 const msg = talk_list[i].content;
                 const user = talk_list[i].user_name;
                 $messages.append(`
-                <p>${user} - ${msg}</p>
+                <p class="message">${user} - ${msg}</p>
                 `);
             };
             $pseudo.append(pseudo);

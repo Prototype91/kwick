@@ -1,9 +1,18 @@
-.flex {
+header {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
     display: flex;
+    justify-content: space-between;
 }
 
 textarea {
-    width: 100%;
+    width: 50%;
     margin-bottom: 10px;
     background: rgba(0, 0, 0, 0.3);
     border: none;
@@ -11,10 +20,43 @@ textarea {
     padding: 10px;
     font-size: 13px;
     color: #fff;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 4px;
-    box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2),
-        0 1px 1px rgba(255, 255, 255, 0.2);
     transition: box-shadow 0.5s ease;
+}
+
+main div:first-of-type {
+    word-break: break-word;
+    width: 70%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#logged-users {
+    width: 30%;
+    text-align: center;
+}
+
+@media(max-width: 674px) {
+    main {
+        flex-direction: column;
+    }
+
+    main div:first-of-type {
+        word-break: break-word;
+        width: 100%;
+    }
+
+    #logged-users,
+    #messages-section p {
+        width: 100%;
+    }
+
+    #messages-section h1 {
+        text-align: center;
+    }
 }
