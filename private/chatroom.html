@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kwick - Chatroom</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/chatroom.css">
     <script defer src="https://unpkg.com/jquery"></script>
     <script defer src="../js/chatroom.js"></script>
 </head>
@@ -14,11 +16,16 @@
         <h1>
             Bienvenue <span id="pseudo"></span> !
         </h1>
-        <section id='messages-section'></section>
-        <form id="send-message-form">
-            <textarea cols="30" rows="2" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
+        <div class="flex">
+            <div>
+                <section id='messages-section'></section>
+                <form id="send-message-form">
+                    <textarea cols="30" rows="2" required></textarea>
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+            <div id="logged-users"></div>
+        </div>
     </main>
 </body>
 

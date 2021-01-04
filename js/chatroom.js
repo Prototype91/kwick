@@ -5,6 +5,26 @@
     const user_data = JSON.parse(sessionStorage.getItem('chatroom'));
     const $pseudo = $('#pseudo');
     const $messages = $('#messages-section');
+    const $logged_users = $('#logged-users');
+
+    $.ajax({
+        url: `http://greenvelvet.alwaysdata.net/kwick/api/user/logged/${user_data.token}`,
+        method: 'GET',
+        dataType: 'jsonp'
+    })
+        .then((response) => {
+            console.log('hjghjghj', response.result.user);
+            const users = response.result.user;
+            for(let i = 0; i < users.length; i++) {
+                $logged_users.append(`
+                <p>${users[i]}</p>
+                `);
+            }
+
+        })
+        .catch((error) => {
+            console.log(error);
+        })
 
     $.ajax({
         url: `http://greenvelvet.alwaysdata.net/kwick/api/talk/list/${user_data.token}/0`,
@@ -28,6 +48,7 @@
             }
 
             $pseudo.append(pseudo);
+            
 
             console.log(response);
 
