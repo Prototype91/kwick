@@ -40,7 +40,7 @@ body {
     border: none;
 }
 
-.login {
+#login, #signup {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -49,7 +49,7 @@ body {
     height: 300px;
 }
 
-.login h1 {
+#login h1, #signup h1 {
     color: #fff;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     letter-spacing: 1px;

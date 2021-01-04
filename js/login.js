@@ -23,6 +23,7 @@
                 .then((response) => {
                     console.log(response);
                     const user_data = {
+                        pseudo: $pseudo,
                         id: response.result.id,
                         token : response.result.token
                     }

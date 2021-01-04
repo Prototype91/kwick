@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,18 @@
     <script defer src="https://unpkg.com/jquery"></script>
     <script defer src="../js/chatroom.js"></script>
 </head>
+
 <body>
-    
+    <main>
+        <h1>
+            Bienvenue <span id="pseudo"></span> !
+        </h1>
+        <section id='messages-section'></section>
+        <form id="send-message-form">
+            <textarea cols="30" rows="2" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </main>
 </body>
+
 </html>
