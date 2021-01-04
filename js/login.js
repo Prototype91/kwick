@@ -28,6 +28,7 @@
                         token : response.result.token
                     }
                     sessionStorage.setItem('chatroom', JSON.stringify(user_data));
+                    window.location.href = '../private/chatroom.html';
                 })
                 .catch((error) => {
                     console.log(error);

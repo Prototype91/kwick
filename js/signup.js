@@ -23,7 +23,7 @@
             })
                 .then((response) => {
                     console.log(response);
-                    // document.location.href="../login.html"; 
+                    document.location.href="../public/login.html"; 
                 })
                 .catch((error) => {
                     console.log(error);
