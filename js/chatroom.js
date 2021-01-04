@@ -18,7 +18,7 @@
 
     // Request to get all the messages
     $.ajax({
-        url: `http://greenvelvet.alwaysdata.net/kwick/api/talk/list/${user_data.token}/0`,
+        url: `http://greenvelvet.alwaysdata.net/kwick/api/talk/list/${user_data.token}/1609792521`,
         method: 'GET',
         dataType: 'jsonp'
     })
@@ -31,11 +31,17 @@
             for (let i = 0; i < talk_list.length; i++) {
                 const msg = talk_list[i].content;
                 const user = talk_list[i].user_name;
+                const timestamp = talk_list[i].timestamp;
                 $messages.append(`
-                <div class="message-ctn">
-                    <p>${user} :</p>
-                    <p>"${msg}"</p>
-                </div>
+                <li>
+                    <div class="message-data align-right">
+                        <span class="message-data-time">${convert_timestamp(timestamp)}</span>
+                        <span>${user}</span>
+                    </div>
+                    <div class="message float-right">
+                        ${msg}
+                    </div>
+                </li>
                 `);
             };
         })
@@ -91,6 +97,17 @@
             .catch((error) => {
                 console.log(error);
             })
+    }
+
+    // Function to convert timestamp
+    const convert_timestamp = (timestamp) => {
+        const date = new Date(timestamp * 1000);
+        const hours = date.getHours();
+        const minutes = "0" + date.getMinutes();
+
+        const formattedTime = hours + 'h' + minutes.substr(-2);
+
+        return formattedTime;
     }
 
     // When you click to logout

@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/Prototype91/kwick/issues"
   },
-  "homepage": "https://github.com/Prototype91/kwick#readme"
+  "homepage": "https://github.com/Prototype91/kwick#readme",
+  "dependencies": {}
 }

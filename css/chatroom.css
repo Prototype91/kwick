@@ -1,8 +1,16 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* HEADER */
+
 header {
     width: 80%;
     margin: 0 auto;
     text-align: center;
 }
+
+/* MAIN PART */
 
 main {
     width: 80%;
@@ -11,8 +19,94 @@ main {
     justify-content: center;
 }
 
-textarea {
-    width: 50%;
+#logged-users {
+    width: 30%;
+    text-align: center;
+}
+
+.ctn {
+    display: flex;
+    flex-direction: column;
+    word-break: break-word;
+    width: 70%;
+    align-items: flex-end;
+}
+
+.ctn h1 {
+    text-align: end;
+}
+
+/* CHAT */
+
+.chat {
+    width: 570px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: white;
+}
+
+.message-data {
+    margin-bottom: 15px;
+}
+
+.message-data-time {
+    color: #a8aab1;
+    padding-left: 6px;
+}
+
+.message {
+    color: white;
+    padding: 18px 20px;
+    line-height: 26px;
+    font-size: 16px;
+    border-radius: 7px;
+    margin-bottom: 30px;
+    width: 90%;
+    position: relative;
+    background: #94C2ED;
+}
+
+.message:after {
+    bottom: 100%;
+    left: 7%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #86BB71;
+    border-width: 10px;
+    margin-left: -10px;
+    border-bottom-color: #94C2ED;
+    left: 96%;
+}
+
+.chat-message {
+    padding: 30px;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.float-right {
+    float: right;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* FORM */
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form textarea {
     margin-bottom: 10px;
     background: rgba(0, 0, 0, 0.3);
     border: none;
@@ -25,50 +119,30 @@ textarea {
     transition: box-shadow 0.5s ease;
 }
 
-.ctn {
-    word-break: break-word;
-    width: 70%;
+form button {
+    align-self: flex-end;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#logged-users {
-    width: 30%;
-    text-align: center;
-}
-
-#messages-section h1 {
-    text-align: end;
-}
-
-.message-ctn {
-    border: solid 1px white;
-    margin-bottom: 20px;
-    text-align: center;
-    border-radius: 20px;
-}
+/* RESPONSIVE */
 
 @media(max-width: 674px) {
     main {
+        width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
+    .chat {
+        width: 300px;
+    }
+
+    .message:after {
+        left: 92%!important;
+    }
+
     #logged-users,
     #messages-section p {
         width: 100%;
-    }
-
-    .message-ctn {
-        width: 100%;
-    }
-
-    #messages-section h1 {
-        text-align: center;
     }
 }
