@@ -2,33 +2,37 @@
 
     'use strict';
 
+    // Gets the registration form
     const $form = $("#signup-form");
 
+    // When you submit your registration form
     $form.on('submit', function (e) {
         createAccount(e);
     });
 
+    // Function to create your account
     const createAccount = (e) => {
         e.preventDefault();
+
+        // Gets values for registration
         const $pseudo = $("#pseudo-input").val();
         const $password = $("#password-input").val();
-        console.log($pseudo.length, $password.length);
 
-        if ($pseudo.length > 0 && $password.length > 0) {
-            console.log('ok');
-            $.ajax({
-                url: `http://greenvelvet.alwaysdata.net/kwick/api/signup/${$pseudo}/${$password}`,
-                method: 'GET',
-                dataType: 'jsonp'
+        // Request to the REST API to add your registration
+        $.ajax({
+            url: `http://greenvelvet.alwaysdata.net/kwick/api/signup/${$pseudo}/${$password}`,
+            method: 'GET',
+            dataType: 'jsonp'
+        })
+            // Success
+            .then((response) => {
+                // Redirect to the login form
+                document.location.href = "../public/login.html";
             })
-                .then((response) => {
-                    console.log(response);
-                    document.location.href="../public/login.html"; 
-                })
-                .catch((error) => {
-                    console.log(error);
-                })
-        }
+            // Errors
+            .catch((error) => {
+                console.log(error);
+            })
     }
 
 })(jQuery);
