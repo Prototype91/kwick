@@ -8,7 +8,7 @@
         createAccount(e);
     });
 
-    function createAccount(e) {
+    const createAccount = (e) => {
         e.preventDefault();
         const $pseudo = $("#pseudo-input").val();
         const $password = $("#password-input").val();

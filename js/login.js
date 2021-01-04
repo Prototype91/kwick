@@ -8,7 +8,7 @@
         login(e);
     });
 
-    function login(e) {
+    const login = (e) => {
         e.preventDefault();
         const $pseudo = $("#pseudo-input").val();
         const $password = $("#password-input").val();

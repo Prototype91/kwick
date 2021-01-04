@@ -6,6 +6,11 @@
     const $pseudo = $('#pseudo');
     const $messages = $('#messages-section');
     const $logged_users = $('#logged-users');
+    const $send_message_form = $('#send-message-form');
+
+    $send_message_form.on('submit', function(e) {
+        sendMessage(e);
+    });
 
     $.ajax({
         url: `http://greenvelvet.alwaysdata.net/kwick/api/user/logged/${user_data.token}`,
@@ -13,18 +18,33 @@
         dataType: 'jsonp'
     })
         .then((response) => {
-            console.log('hjghjghj', response.result.user);
             const users = response.result.user;
             for(let i = 0; i < users.length; i++) {
                 $logged_users.append(`
                 <p>${users[i]}</p>
                 `);
-            }
-
+            };
         })
         .catch((error) => {
             console.log(error);
         })
+
+    const sendMessage = (e) => {
+        e.preventDefault();
+        console.log('Send');
+        const message = $('#textarea-input').val();
+        $.ajax({
+            url: `http://greenvelvet.alwaysdata.net/kwick/api/say/${user_data.token}/${user_data.id}/${message}`,
+            method: 'GET',
+            dataType: 'jsonp'
+        })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
 
     $.ajax({
         url: `http://greenvelvet.alwaysdata.net/kwick/api/talk/list/${user_data.token}/0`,
@@ -45,11 +65,8 @@
                 $messages.append(`
                 <p>${user} - ${msg}</p>
                 `);
-            }
-
+            };
             $pseudo.append(pseudo);
-            
-
             console.log(response);
 
         })
