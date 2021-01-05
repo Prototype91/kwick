@@ -44,7 +44,7 @@
                     // Redirects to the chatroom
                     setTimeout(function(){
                         window.location.href = '../private/chatroom.html';
-                    }, 3000);
+                    }, 2000);
                 } else {
                     // Error message for the user
                     $('#login').append(`<p id="status" class="fail">Email ou mot de passe invalide.</p>`);

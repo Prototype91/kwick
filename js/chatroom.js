@@ -90,7 +90,10 @@
         })
             // Success
             .then((response) => {
-                console.log(response);
+                // Sets your sent message
+                window.location.reload();
+                // Goes to the bottom to see your message
+                window.scrollTo(0, document.body.scrollHeight);
             })
             // Errors
             .catch((error) => {
@@ -123,8 +126,12 @@
         })
             // Success
             .then((response) => {
+                $logout_button.remove();
                 // Redirect to the homepage
-                window.location.href = '../index.html';
+                $('#head-ctn').append(`<p id="status">Déconnexion en cours ...</p>`);
+                setTimeout(function(){
+                    window.location.href = '../index.html';
+                }, 2000);
             })
             // Errors
             .catch((error) => {

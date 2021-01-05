@@ -31,7 +31,7 @@
                 // Redirect to the login form
                 setTimeout(function(){
                     document.location.href = "../public/login.html";
-                }, 3000);
+                }, 2000);
             })
             // Errors
             .catch((error) => {

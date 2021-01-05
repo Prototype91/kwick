@@ -32,11 +32,23 @@ main {
     align-items: flex-end;
 }
 
+#status {
+    border: 1px solid black;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    color: red;
+    width: 15%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+/* CHAT */
+
 #chat-ctn h1 {
     text-align: end;
 }
 
-/* CHAT */
 
 .chat {
     width: 570px;
@@ -131,6 +143,11 @@ form button {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    #status {
+        width: 60%;
+        font-size: 14px;
     }
 
     .chat {
