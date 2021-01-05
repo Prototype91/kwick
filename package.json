@@ -4,17 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "live-server --port=5500 --browser=chrome"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Prototype91/kwick.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Lecomte Dylan",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Prototype91/kwick/issues"
   },
   "homepage": "https://github.com/Prototype91/kwick#readme",
-  "dependencies": {}
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
 }
