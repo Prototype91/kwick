@@ -24,6 +24,21 @@ main {
     text-align: center;
 }
 
+#logout {
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 9px 14px;
+    color: white;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 15px;
+}
+
 #chat-ctn {
     display: flex;
     flex-direction: column;
@@ -48,7 +63,6 @@ main {
 #chat-ctn h1 {
     text-align: end;
 }
-
 
 .chat {
     width: 570px;
@@ -133,6 +147,19 @@ form textarea {
 
 form button {
     align-self: flex-end;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 18px;
+    color: #333333;
+    text-align: center;
+    vertical-align: middle;
+    background-color: white;
+    cursor: pointer;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 15px;
 }
 
 /* RESPONSIVE */
@@ -143,6 +170,10 @@ form button {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    form button {
+        width: 100%;
     }
 
     #status {

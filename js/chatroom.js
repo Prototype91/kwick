@@ -81,29 +81,33 @@
         e.preventDefault();
         // Gets the message to send
         const message = $('#textarea-input').val();
-
-        // Request to send the message
-        $.ajax({
-            url: encodeURI(`http://greenvelvet.alwaysdata.net/kwick/api/say/${user_data.token}/${user_data.id}/${message}`),
-            method: 'GET',
-            dataType: 'jsonp'
-        })
-            // Success
-            .then((response) => {
-                // Sets your sent message
-                window.location.reload();
-                // Goes to the bottom to see your message
-                window.scrollTo(0, document.body.scrollHeight);
+        // If the message is not empty
+        if (message.trim().length > 0) {
+            // Request to send the message
+            $.ajax({
+                url: encodeURI(`http://greenvelvet.alwaysdata.net/kwick/api/say/${user_data.token}/${user_data.id}/${message}`),
+                method: 'GET',
+                dataType: 'jsonp'
             })
-            // Errors
-            .catch((error) => {
-                console.error(error);
-            })
+                // Success
+                .then((response) => {
+                    // Sets your sent message
+                    window.location.reload();
+                    // Goes to the bottom to see your message
+                    window.scrollTo(0, document.body.scrollHeight);
+                })
+                // Errors
+                .catch((error) => {
+                    console.error(error);
+                })
+        }
     }
 
     // Function to convert timestamp
     const convert_timestamp = (timestamp) => {
+        // We set each data
         const date = new Date(timestamp * 1000);
+
         const day = ('0' + date.getDate()).slice(-2);
         const month = ('0' + date.getMonth() + 1).slice(-2);
         const year = date.getFullYear();
@@ -111,6 +115,7 @@
         const hours = ('0' + date.getHours()).slice(-2);
         const minutes = ('0' + date.getMinutes()).slice(-2);
 
+        // Returns the full converted date
         return `${day}/${month}/${year} à ${hours}h${minutes}`
     }
 
@@ -129,7 +134,7 @@
                 $logout_button.remove();
                 // Redirect to the homepage
                 $('#head-ctn').append(`<p id="status">Déconnexion en cours ...</p>`);
-                setTimeout(function(){
+                setTimeout(function () {
                     window.location.href = '../index.html';
                 }, 2000);
             })
