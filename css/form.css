@@ -75,3 +75,26 @@ input {
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 4px;
 }
+
+#status {
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.success {
+    color: green;
+}
+
+.fail {
+    color: red;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}

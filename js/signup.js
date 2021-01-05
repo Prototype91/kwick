@@ -27,11 +27,17 @@
             // Success
             .then((response) => {
                 // Success message before redirection
-                $('#signup-form').append(`<p id="status">Succès, redirection vers l'écran de connexion ...</p>`);
-                // Redirect to the login form
-                setTimeout(function(){
-                    document.location.href = "../public/login.html";
-                }, 2000);
+                if (response.result.status !== 'failure') {
+                    $('#status') && $('#status').remove();
+                    $('#signup-form').append(`<p id="status">Succès, redirection vers l'écran de connexion ...</p>`);
+                    // Redirect to the login form
+                    setTimeout(function () {
+                        document.location.href = "../public/login.html";
+                    }, 2000);
+                } else {
+                    $('#status') && $('#status').remove();
+                    $('#signup-form').append(`<p id="status" class="fail">Ce compte existe déja ...</p>`);
+                }
             })
             // Errors
             .catch((error) => {

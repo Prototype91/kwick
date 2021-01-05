@@ -32,7 +32,7 @@
                         pseudo: $pseudo,
                         id: response.result.id,
                         token: response.result.token
-                    }
+                    };
                     // Sets the session storage
                     sessionStorage.setItem('chatroom', JSON.stringify(user_data));
 
@@ -42,7 +42,7 @@
                     $('#login').append(`<p id="status" class="success">Succès, redirection en cours ...</p>`);
 
                     // Redirects to the chatroom
-                    setTimeout(function(){
+                    setTimeout(function () {
                         window.location.href = '../private/chatroom.html';
                     }, 2000);
                 } else {

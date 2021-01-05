@@ -174,7 +174,7 @@ input:checked~.tab-content {
     pointer-events: none;
     border-width: 10px;
     margin-left: -10px;
-    
+
 }
 
 .left {

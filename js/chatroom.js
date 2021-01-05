@@ -34,7 +34,7 @@
                 const timestamp = talk_list[i].timestamp;
 
                 user_data.pseudo === user ?
-                $messages.append(`
+                    $messages.append(`
                 <li>
                     <div class="message-data align-right">
                         <span class="message-data-time">${convert_timestamp(timestamp)}</span>
@@ -45,7 +45,7 @@
                     </div>
                 </li>
                 `) :
-                $messages.append(`
+                    $messages.append(`
                 <li>
                     <div class="message-data align-left">
                         <span>${user}</span>
@@ -55,7 +55,7 @@
                         ${msg}
                     </div>
                 </li>
-                `)
+                `);
             };
         })
         // Errors

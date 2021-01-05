@@ -16,6 +16,6 @@ https://github.com/Prototype91/kwick
 
 In the project directory, you can run :
 
-### `npm run start` to run live-server
+### `npm run start` after `npm install` to run live-server
 
 You can also open index.html
