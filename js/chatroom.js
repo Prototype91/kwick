@@ -18,7 +18,7 @@
 
     // Request to get all the messages
     $.ajax({
-        url: `http://greenvelvet.alwaysdata.net/kwick/api/talk/list/${user_data.token}/1609792521`,
+        url: `http://greenvelvet.alwaysdata.net/kwick/api/talk/list/${user_data.token}/0`,
         method: 'GET',
         dataType: 'jsonp'
     })
@@ -27,8 +27,8 @@
             // Gets all the messages and pseudo of users
             const talk_list = response.result.talk;
 
-            // Displays all the messages of users
-            for (let i = 0; i < talk_list.length; i++) {
+            // Displays all 10 last the messages of users
+            for (let i = talk_list.length - 10; i < talk_list.length; i++) {
                 const msg = talk_list[i].content;
                 const user = talk_list[i].user_name;
                 const timestamp = talk_list[i].timestamp;
@@ -47,7 +47,7 @@
         })
         // Errors
         .catch((error) => {
-            console.log(error);
+            console.error(error);
         })
 
     // Gets all the users logged
@@ -62,14 +62,13 @@
             const users = response.result.user;
             // Displays all the users logged
             for (let i = 0; i < users.length; i++) {
-                $logged_users.append(`
-                <p>${users[i]}</p>
-                `);
+                let user = users[i] === user_data.pseudo ? `<p>${users[i]} (moi)</p>` : `<p>${users[i]}</p>`;
+                $logged_users.append(user);
             };
         })
         // Errors
         .catch((error) => {
-            console.log(error);
+            console.error(error);
         })
 
     // When you click on the sending message button
@@ -85,7 +84,7 @@
 
         // Request to send the message
         $.ajax({
-            url: `http://greenvelvet.alwaysdata.net/kwick/api/say/${user_data.token}/${user_data.id}/${message}`,
+            url: encodeURI(`http://greenvelvet.alwaysdata.net/kwick/api/say/${user_data.token}/${user_data.id}/${message}`),
             method: 'GET',
             dataType: 'jsonp'
         })
@@ -95,19 +94,21 @@
             })
             // Errors
             .catch((error) => {
-                console.log(error);
+                console.error(error);
             })
     }
 
     // Function to convert timestamp
     const convert_timestamp = (timestamp) => {
         const date = new Date(timestamp * 1000);
-        const hours = date.getHours();
-        const minutes = "0" + date.getMinutes();
+        const day = ('0' + date.getDate()).slice(-2);
+        const month = ('0' + date.getMonth() + 1).slice(-2);
+        const year = date.getFullYear();
 
-        const formattedTime = hours + 'h' + minutes.substr(-2);
+        const hours = ('0' + date.getHours()).slice(-2);
+        const minutes = ('0' + date.getMinutes()).slice(-2);
 
-        return formattedTime;
+        return `${day}/${month}/${year} à ${hours}h${minutes}`
     }
 
     // When you click to logout
@@ -127,7 +128,7 @@
             })
             // Errors
             .catch((error) => {
-                console.log(error);
+                console.error(error);
             })
     })
 

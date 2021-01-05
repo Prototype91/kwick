@@ -19,21 +19,19 @@
         <button id="logout">Se déconnecter</button>
     </header>
     <main>
-        <div id="logged-users">
+        <aside id="logged-users">
             <h2>Amis connectés :</h2>
-        </div>
-        <div class="ctn">
+        </aside>
+        <section id="chat-ctn">
             <div class="chat">
-                <div class="chat-history">
-                    <h1>Fil de discussion</h1>
-                    <ul id='messages-section'></ul>
-                </div>
+                <h1>Fil de discussion</h1>
+                <ul id='messages-section'></ul>
             </div>
             <form id="send-message-form">
                 <textarea id="textarea-input" cols="30" rows="2" placeholder="Votre message ..." required></textarea>
                 <button type="submit">Envoyer</button>
             </form>
-        </div>
+        </section>
     </main>
 </body>
 

@@ -24,7 +24,7 @@ main {
     text-align: center;
 }
 
-.ctn {
+#chat-ctn {
     display: flex;
     flex-direction: column;
     word-break: break-word;
@@ -32,7 +32,7 @@ main {
     align-items: flex-end;
 }
 
-.ctn h1 {
+#chat-ctn h1 {
     text-align: end;
 }
 

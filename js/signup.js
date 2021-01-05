@@ -26,12 +26,16 @@
         })
             // Success
             .then((response) => {
+                // Success message before redirection
+                $('#signup-form').append(`<p id="status">Succès, redirection vers l'écran de connexion ...</p>`);
                 // Redirect to the login form
-                document.location.href = "../public/login.html";
+                setTimeout(function(){
+                    document.location.href = "../public/login.html";
+                }, 3000);
             })
             // Errors
             .catch((error) => {
-                console.log(error);
+                console.error(error);
             })
     }
 

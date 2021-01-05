@@ -26,21 +26,33 @@
         })
             // Success
             .then((response) => {
-                // Creates an object to put it into the session storage
-                const user_data = {
-                    pseudo: $pseudo,
-                    id: response.result.id,
-                    token: response.result.token
-                }
-                // Sets the session storage
-                sessionStorage.setItem('chatroom', JSON.stringify(user_data));
+                if (response.result.status !== 'failure') {
+                    // Creates an object to put it into the session storage
+                    const user_data = {
+                        pseudo: $pseudo,
+                        id: response.result.id,
+                        token: response.result.token
+                    }
+                    // Sets the session storage
+                    sessionStorage.setItem('chatroom', JSON.stringify(user_data));
 
-                // Redirects to the chatroom
-                window.location.href = '../private/chatroom.html';
+                    // Deletes the error message if present
+                    $('#status') && $('#status').remove();
+                    // Success message before redirection
+                    $('#login').append(`<p id="status" class="success">Succès, redirection en cours ...</p>`);
+
+                    // Redirects to the chatroom
+                    setTimeout(function(){
+                        window.location.href = '../private/chatroom.html';
+                    }, 3000);
+                } else {
+                    // Error message for the user
+                    $('#login').append(`<p id="status" class="fail">Email ou mot de passe invalide.</p>`);
+                }
             })
             // Errors
             .catch((error) => {
-                console.log(error);
+                console.error(error);
             })
     }
 
