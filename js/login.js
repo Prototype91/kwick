@@ -47,7 +47,8 @@
                     }, 2000);
                 } else {
                     // Error message for the user
-                    $('#login').append(`<p id="status" class="fail">Email ou mot de passe invalide.</p>`);
+                    $('#status') && $('#status').remove();
+                    $('#login').append(`<p id="status" class="fail">Email ou mot de passe invalide ...</p>`);
                 }
             })
             // Errors
