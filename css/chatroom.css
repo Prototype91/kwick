@@ -8,6 +8,7 @@ header {
     width: 80%;
     margin: 0 auto;
     text-align: center;
+    margin-top: 50px;
 }
 
 /* MAIN PART */
@@ -21,7 +22,6 @@ main {
 
 #logged-users {
     width: 30%;
-    text-align: center;
 }
 
 #logout {
@@ -42,7 +42,6 @@ main {
 #chat-ctn {
     display: flex;
     flex-direction: column;
-    word-break: break-word;
     width: 70%;
     align-items: flex-end;
 }
@@ -58,6 +57,80 @@ main {
     margin: 0 auto;
     margin-top: 20px;
 }
+
+/* ACCORDION */
+
+input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.col {
+    flex: 1;
+}
+
+.tabs {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+
+.tab {
+    width: 100%;
+    color: black;
+    overflow: hidden;
+}
+
+.tab-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+    /* Icon */
+}
+
+.tab-label::after {
+    content: "❯";
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    transition: all 0.35s;
+}
+
+.tab-content {
+    max-height: 0;
+    padding: 0 1em;
+    color: #2c3e50;
+    background: white;
+    transition: all 0.35s;
+}
+
+.tab-content::before {
+    content: '• ';
+    color: green;
+}
+
+.tab-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    font-size: 0.75em;
+    background: white;
+    cursor: pointer;
+}
+
+input:checked+.tab-label::after {
+    transform: rotate(90deg);
+}
+
+input:checked~.tab-content {
+    max-height: 100vh;
+    padding: 1em;
+}
+
 /* CHAT */
 
 #chat-ctn h1 {
@@ -85,31 +158,53 @@ main {
     padding: 18px 20px;
     line-height: 26px;
     font-size: 16px;
-    border-radius: 7px;
+    border-radius: 30px;
     margin-bottom: 30px;
     width: 90%;
     position: relative;
-    background: #94C2ED;
 }
 
 .message:after {
     bottom: 100%;
-    left: 7%;
     border: solid transparent;
     content: " ";
     height: 0;
     width: 0;
     position: absolute;
     pointer-events: none;
-    border-bottom-color: #86BB71;
     border-width: 10px;
     margin-left: -10px;
-    border-bottom-color: #94C2ED;
-    left: 96%;
+    
+}
+
+.left {
+    background: #5fc9f8;
+}
+
+.right {
+    background: #53d769;
+}
+
+.left:after {
+    left: 10%;
+    border-bottom-color: #5fc9f8;
+}
+
+.right:after {
+    right: 8%;
+    border-bottom-color: #53d769;
 }
 
 .chat-message {
     padding: 30px;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.float-left {
+    float: left;
 }
 
 .align-right {
@@ -117,7 +212,7 @@ main {
 }
 
 .float-right {
-    float: right;
+    text-align: end;
 }
 
 li {
@@ -185,12 +280,27 @@ form button {
         width: 300px;
     }
 
-    .message:after {
-        left: 92%!important;
+    .left:after {
+        left: 17%;
+    }
+
+    .right:after {
+        right: 15%;
     }
 
     #logged-users,
     #messages-section p {
         width: 100%;
+    }
+
+    #logged-users {
+        margin-top: 30px;
+        width: 75%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .row {
+        width: 80%;
     }
 }

@@ -8,7 +8,7 @@
     // Gets all html elements needed
     const $pseudo = $('#pseudo');
     const $messages = $('#messages-section');
-    const $logged_users = $('#logged-users');
+    const $logged_users = $('#logged-users .tab');
     const $send_message_form = $('#send-message-form');
     const $logout_button = $('#logout');
 
@@ -32,17 +32,30 @@
                 const msg = talk_list[i].content;
                 const user = talk_list[i].user_name;
                 const timestamp = talk_list[i].timestamp;
+
+                user_data.pseudo === user ?
                 $messages.append(`
                 <li>
                     <div class="message-data align-right">
                         <span class="message-data-time">${convert_timestamp(timestamp)}</span>
                         <span>${user}</span>
                     </div>
-                    <div class="message float-right">
+                    <div class="message right float-right">
                         ${msg}
                     </div>
                 </li>
-                `);
+                `) :
+                $messages.append(`
+                <li>
+                    <div class="message-data align-left">
+                        <span>${user}</span>
+                        <span class="message-data-time">${convert_timestamp(timestamp)}</span>
+                    </div>
+                    <div class="message left float-left">
+                        ${msg}
+                    </div>
+                </li>
+                `)
             };
         })
         // Errors
@@ -62,7 +75,9 @@
             const users = response.result.user;
             // Displays all the users logged
             for (let i = 0; i < users.length; i++) {
-                let user = users[i] === user_data.pseudo ? `<p>${users[i]} (moi)</p>` : `<p>${users[i]}</p>`;
+                let user = users[i] === user_data.pseudo ?
+                    `<div class="tab-content">${users[i]} (moi)</div>` :
+                    `<div class="tab-content">${users[i]}</div>`;
                 $logged_users.append(user);
             };
         })
