@@ -39,13 +39,6 @@ main {
     border-radius: 15px;
 }
 
-#chat-ctn {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    align-items: flex-end;
-}
-
 #status {
     border: 1px solid black;
     background-color: white;
@@ -132,6 +125,13 @@ input:checked~.tab-content {
 
 /* CHAT */
 
+#chat-ctn {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: flex-end;
+}
+
 #chat-ctn h1 {
     text-align: end;
 }
@@ -161,6 +161,7 @@ input:checked~.tab-content {
     margin-bottom: 30px;
     width: 100%;
     position: relative;
+    word-break: break-word;
 }
 
 .message:after {
@@ -297,6 +298,10 @@ form button {
         width: 75%;
         display: flex;
         justify-content: center;
+    }
+
+    .message {
+        width: 90%;
     }
 
     .row {

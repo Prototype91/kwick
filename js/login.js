@@ -2,6 +2,8 @@
 
     'use strict';
 
+    const SESSION_STORAGE_KEY = '5231303chatkey02186964';
+
     // Gets the login form
     const $form = $("#login-form");
 
@@ -34,7 +36,7 @@
                         token: response.result.token
                     };
                     // Sets the session storage
-                    sessionStorage.setItem('chatroom', JSON.stringify(user_data));
+                    sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(user_data));
 
                     // Deletes the error message if present
                     $('#status') && $('#status').remove();

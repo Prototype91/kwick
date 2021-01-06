@@ -2,8 +2,10 @@
 
     'use strict';
 
+    const SESSION_STORAGE_KEY = '5231303chatkey02186964';
+
     // Gets the session storage data for specific requests
-    const user_data = JSON.parse(sessionStorage.getItem('chatroom'));
+    const user_data = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY));
 
     // Gets all html elements needed
     const $pseudo = $('#pseudo');
