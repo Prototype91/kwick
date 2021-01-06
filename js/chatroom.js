@@ -20,7 +20,7 @@
 
     // Request to get all the messages
     $.ajax({
-        url: `http://greenvelvet.alwaysdata.net/kwick/api/talk/list/${user_data.token}/0`,
+        url: `https://greenvelvet.alwaysdata.net/kwick/api/talk/list/${user_data.token}/0`,
         method: 'GET',
         dataType: 'jsonp'
     })
@@ -67,7 +67,7 @@
 
     // Gets all the users logged
     $.ajax({
-        url: `http://greenvelvet.alwaysdata.net/kwick/api/user/logged/${user_data.token}`,
+        url: `https://greenvelvet.alwaysdata.net/kwick/api/user/logged/${user_data.token}`,
         method: 'GET',
         dataType: 'jsonp'
     })
@@ -99,10 +99,10 @@
         // Gets the message to send
         const message = $('#textarea-input').val();
         // If the message is not empty
-        if (message.trim().length > 0) {
+        if (message.trim().length) {
             // Request to send the message
             $.ajax({
-                url: encodeURI(`http://greenvelvet.alwaysdata.net/kwick/api/say/${user_data.token}/${user_data.id}/${message}`),
+                url: encodeURI(`https://greenvelvet.alwaysdata.net/kwick/api/say/${user_data.token}/${user_data.id}/${message}`),
                 method: 'GET',
                 dataType: 'jsonp'
             })
@@ -142,15 +142,18 @@
 
         // Request to logout
         $.ajax({
-            url: `http://greenvelvet.alwaysdata.net/kwick/api/logout/${user_data.token}/${user_data.id}`,
+            url: `https://greenvelvet.alwaysdata.net/kwick/api/logout/${user_data.token}/${user_data.id}`,
             method: 'GET',
             dataType: 'jsonp'
         })
             // Success
             .then((response) => {
                 $logout_button.remove();
-                // Redirect to the homepage
+                // Logout message
                 $('#head-ctn').append(`<p id="status">Déconnexion en cours ...</p>`);
+                // Removes the session storage
+                sessionStorage.removeItem(SESSION_STORAGE_KEY);
+                // Redirect to the homepage
                 setTimeout(function () {
                     window.location.href = '../index.html';
                 }, 2000);

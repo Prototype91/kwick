@@ -151,7 +151,6 @@ input:checked~.tab-content {
     width: 100%;
     position: relative;
     word-break: break-word;
-    padding: 18px 20px;
 }
 
 .message:after {
@@ -168,10 +167,12 @@ input:checked~.tab-content {
 
 .left {
     background: #5fc9f8;
+    padding: 18px 0 20px 18px;
 }
 
 .right {
     background: #53d769;
+    padding: 18px 18px 20px 0;
 }
 
 .left:after {
@@ -232,6 +233,7 @@ form textarea {
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     transition: box-shadow 0.5s ease;
+    resize: none;
 }
 
 form button {
@@ -255,7 +257,6 @@ form button {
 
 @media(max-width: 674px) {
     main {
-        width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -276,6 +277,11 @@ form button {
 
     #chat-ctn {
         width: 80%;
+    }
+
+    #chat-ctn h1 {
+        margin-top: 30px;
+        text-align: center;
     }
 
     .left:after {

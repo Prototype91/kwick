@@ -20,7 +20,7 @@
 
         // Request to the REST API to add your registration
         $.ajax({
-            url: `http://greenvelvet.alwaysdata.net/kwick/api/signup/${$pseudo}/${$password}`,
+            url: `https://greenvelvet.alwaysdata.net/kwick/api/signup/${$pseudo}/${$password}`,
             method: 'GET',
             dataType: 'jsonp'
         })
