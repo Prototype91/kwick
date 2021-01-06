@@ -17,7 +17,7 @@ main {
     width: 80%;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 #logged-users {
@@ -59,20 +59,12 @@ input {
     z-index: -1;
 }
 
-.col {
-    flex: 1;
-}
-
-.tabs {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
-}
-
 .tab {
     width: 100%;
     color: black;
     overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
 }
 
 .tab-label {
@@ -128,7 +120,7 @@ input:checked~.tab-content {
 #chat-ctn {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 50%;
     align-items: flex-end;
 }
 
@@ -137,9 +129,7 @@ input:checked~.tab-content {
 }
 
 .chat {
-    width: 570px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    width: 100%;
     color: white;
 }
 
@@ -154,7 +144,6 @@ input:checked~.tab-content {
 
 .message {
     color: white;
-    padding: 18px 20px;
     line-height: 26px;
     font-size: 16px;
     border-radius: 30px;
@@ -162,6 +151,7 @@ input:checked~.tab-content {
     width: 100%;
     position: relative;
     word-break: break-word;
+    padding: 18px 20px;
 }
 
 .message:after {
@@ -174,7 +164,6 @@ input:checked~.tab-content {
     pointer-events: none;
     border-width: 10px;
     margin-left: -10px;
-
 }
 
 .left {
@@ -213,6 +202,11 @@ input:checked~.tab-content {
 
 .float-right {
     text-align: end;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
 }
 
 li {
@@ -277,7 +271,11 @@ form button {
     }
 
     .chat {
-        width: 300px;
+        width: 100%
+    }
+
+    #chat-ctn {
+        width: 80%;
     }
 
     .left:after {
