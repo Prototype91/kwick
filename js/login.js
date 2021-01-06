@@ -22,7 +22,7 @@
 
         // Request to the REST API to login
         $.ajax({
-            url: `https://greenvelvet.alwaysdata.net/kwick/api/login/${$pseudo}/${$password}`,
+            url: `http://greenvelvet.alwaysdata.net/kwick/api/login/${$pseudo}/${$password}`,
             method: 'GET',
             dataType: 'jsonp'
         })

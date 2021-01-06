@@ -20,7 +20,7 @@
 
     // Request to get all the messages
     $.ajax({
-        url: `https://greenvelvet.alwaysdata.net/kwick/api/talk/list/${user_data.token}/0`,
+        url: `http://greenvelvet.alwaysdata.net/kwick/api/talk/list/${user_data.token}/0`,
         method: 'GET',
         dataType: 'jsonp'
     })
@@ -67,7 +67,7 @@
 
     // Gets all the users logged
     $.ajax({
-        url: `https://greenvelvet.alwaysdata.net/kwick/api/user/logged/${user_data.token}`,
+        url: `http://greenvelvet.alwaysdata.net/kwick/api/user/logged/${user_data.token}`,
         method: 'GET',
         dataType: 'jsonp'
     })
@@ -102,7 +102,7 @@
         if (message.trim().length) {
             // Request to send the message
             $.ajax({
-                url: encodeURI(`https://greenvelvet.alwaysdata.net/kwick/api/say/${user_data.token}/${user_data.id}/${message}`),
+                url: encodeURI(`http://greenvelvet.alwaysdata.net/kwick/api/say/${user_data.token}/${user_data.id}/${message}`),
                 method: 'GET',
                 dataType: 'jsonp'
             })
@@ -142,7 +142,7 @@
 
         // Request to logout
         $.ajax({
-            url: `https://greenvelvet.alwaysdata.net/kwick/api/logout/${user_data.token}/${user_data.id}`,
+            url: `http://greenvelvet.alwaysdata.net/kwick/api/logout/${user_data.token}/${user_data.id}`,
             method: 'GET',
             dataType: 'jsonp'
         })

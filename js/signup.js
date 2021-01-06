@@ -20,7 +20,7 @@
 
         // Request to the REST API to add your registration
         $.ajax({
-            url: `https://greenvelvet.alwaysdata.net/kwick/api/signup/${$pseudo}/${$password}`,
+            url: `http://greenvelvet.alwaysdata.net/kwick/api/signup/${$pseudo}/${$password}`,
             method: 'GET',
             dataType: 'jsonp'
         })
@@ -29,7 +29,7 @@
                 // Success message before redirection
                 if (response.result.status !== 'failure') {
                     $('#status') && $('#status').remove();
-                    $('#signup-form').append(`<p id="status">Succès, redirection vers l'écran de connexion ...</p>`);
+                    $('#signup-form').append(`<p id="status" class='success'>Succès, redirection vers l'écran de connexion ...</p>`);
                     // Redirect to the login form
                     setTimeout(function () {
                         document.location.href = "../public/login.html";
