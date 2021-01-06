@@ -89,7 +89,6 @@ input {
     background: white;
     font-weight: bold;
     cursor: pointer;
-    /* Icon */
 }
 
 .tab-label::after {
@@ -160,12 +159,12 @@ input:checked~.tab-content {
     font-size: 16px;
     border-radius: 30px;
     margin-bottom: 30px;
-    width: 90%;
+    width: 100%;
     position: relative;
 }
 
 .message:after {
-    bottom: 100%;
+    bottom: 98%;
     border: solid transparent;
     content: " ";
     height: 0;
