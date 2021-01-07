@@ -1,5 +1,5 @@
-body {
-    font-family: 'Quicksand', sans-serif;
+* {
+    box-sizing: border-box;
 }
 
 /* HEADER */
@@ -9,6 +9,7 @@ header {
     margin: 0 auto;
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 30px;
 }
 
 /* MAIN PART */
@@ -19,6 +20,8 @@ main {
     display: flex;
     justify-content: space-between;
 }
+
+/* LOGOUT */
 
 #logged-users {
     width: 30%;
@@ -51,178 +54,17 @@ main {
     margin-top: 20px;
 }
 
-/* ACCORDION */
-
-input {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
-}
-
-.tab {
-    width: 100%;
-    color: black;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
-}
-
-.tab-label {
-    display: flex;
-    justify-content: space-between;
-    padding: 1em;
-    background: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.tab-label::after {
-    content: "❯";
-    width: 1em;
-    height: 1em;
-    text-align: center;
-    transition: all 0.35s;
-}
-
-.tab-content {
-    max-height: 0;
-    padding: 0 1em;
-    color: #2c3e50;
-    background: white;
-    transition: all 0.35s;
-}
-
-.tab-content::before {
-    content: '• ';
-    color: green;
-}
-
-.tab-close {
-    display: flex;
-    justify-content: flex-end;
-    padding: 1em;
-    font-size: 0.75em;
-    background: white;
-    cursor: pointer;
-}
-
-input:checked+.tab-label::after {
-    transform: rotate(90deg);
-}
-
-input:checked~.tab-content {
-    max-height: 100vh;
-    padding: 1em;
-}
-
-/* CHAT */
-
-#chat-ctn {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    align-items: flex-end;
-}
-
-#chat-ctn h1 {
-    text-align: end;
-}
-
-.chat {
-    width: 100%;
-    color: white;
-}
-
-.message-data {
-    margin-bottom: 15px;
-}
-
-.message-data-time {
-    color: #a8aab1;
-    padding-left: 6px;
-}
-
-.message {
-    color: white;
-    line-height: 26px;
-    font-size: 16px;
-    border-radius: 30px;
-    margin-bottom: 30px;
-    width: 100%;
-    position: relative;
-    word-break: break-word;
-}
-
-.message:after {
-    bottom: 98%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-width: 10px;
-    margin-left: -10px;
-}
-
-.left {
-    background: #5fc9f8;
-    padding: 18px 0 20px 18px;
-}
-
-.right {
-    background: #53d769;
-    padding: 18px 18px 20px 0;
-}
-
-.left:after {
-    left: 10%;
-    border-bottom-color: #5fc9f8;
-}
-
-.right:after {
-    right: 8%;
-    border-bottom-color: #53d769;
-}
-
-.chat-message {
-    padding: 30px;
-}
-
-.align-left {
-    text-align: left;
-}
-
-.float-left {
-    float: left;
-}
-
-.align-right {
-    text-align: right;
-}
-
-.float-right {
-    text-align: end;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    list-style-type: none;
-}
-
-/* FORM */
+/* FORM TO SEND A MESSAGE */
 
 form {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
 }
 
 form textarea {
+    width: 50%;
     margin-bottom: 10px;
     background: rgba(0, 0, 0, 0.3);
     border: none;
@@ -231,7 +73,7 @@ form textarea {
     font-size: 13px;
     color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
+    border-radius: 15px;
     transition: box-shadow 0.5s ease;
     resize: none;
 }
@@ -256,59 +98,42 @@ form button {
 /* RESPONSIVE */
 
 @media(max-width: 674px) {
+
+    /* MAIN PART */
+
     main {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
+    /* FORM TO SEND A MESSAGE */
+
+    form {
+        width: 100%;
+    }
+
     form button {
         width: 100%;
     }
+
+    form textarea {
+        width: 100%;
+    }
+
+    /* LOGOUT */
 
     #status {
         width: 60%;
         font-size: 14px;
     }
 
-    .chat {
-        width: 100%
-    }
-
-    #chat-ctn {
-        width: 80%;
-    }
-
-    #chat-ctn h1 {
-        margin-top: 30px;
-        text-align: center;
-    }
-
-    .left:after {
-        left: 17%;
-    }
-
-    .right:after {
-        right: 15%;
-    }
-
-    #logged-users,
-    #messages-section p {
-        width: 100%;
-    }
+    /* LOGGED USERS */
 
     #logged-users {
         margin-top: 30px;
-        width: 75%;
+        width: 100%;
         display: flex;
         justify-content: center;
-    }
-
-    .message {
-        width: 90%;
-    }
-
-    .row {
-        width: 80%;
     }
 }

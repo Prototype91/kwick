@@ -24,6 +24,26 @@ body {
     background-attachment: fixed;
 }
 
+input {
+    width: 100%;
+    margin-bottom: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 4px;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
 .btn {
     display: inline-block;
     margin-bottom: 0;
@@ -62,17 +82,7 @@ body {
     text-align: center;
 }
 
-input {
-    width: 100%;
-    margin-bottom: 10px;
-    background: rgba(0, 0, 0, 0.3);
-    border: none;
-    outline: none;
-    padding: 10px;
-    font-size: 13px;
-    color: #fff;
-    border-radius: 4px;
-}
+/* SUCCESS AND FAIL MESSAGES */
 
 #status {
     background-color: white;
@@ -87,12 +97,4 @@ input {
 
 .fail {
     color: red;
-}
-
-a {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    text-decoration: none;
-    color: white;
 }
