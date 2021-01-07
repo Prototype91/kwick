@@ -42,7 +42,7 @@
                         <span class="message-data-time">${convert_timestamp(timestamp)}</span>
                         <span>${user}</span>
                     </div>
-                    <div class="message right float-right">
+                    <div class="message right">
                         ${msg}
                     </div>
                 </li>
@@ -53,7 +53,7 @@
                         <span>${user}</span>
                         <span class="message-data-time">${convert_timestamp(timestamp)}</span>
                     </div>
-                    <div class="message left float-left">
+                    <div class="message left">
                         ${msg}
                     </div>
                 </li>

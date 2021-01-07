@@ -16,6 +16,18 @@
     color: white;
 }
 
+ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* MESSAGES */
+
 .message-data {
     margin-bottom: 15px;
 }
@@ -53,10 +65,12 @@
 
 .left {
     background-color: #5fc9f8;
+    float: left;
 }
 
 .right {
     background-color: #53d769;
+    text-align: end;
 }
 
 .left:after {
@@ -77,27 +91,10 @@
     text-align: right;
 }
 
-.float-left {
-    float: left;
-}
-
-.float-right {
-    text-align: end;
-}
-
-ul {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    list-style-type: none;
-}
-
 /* RESPONSIVE */
 
 @media(max-width: 674px) {
+
     /* CHAT */
 
     .chat {

@@ -1,3 +1,5 @@
+/* GENERALS */
+
 body {
     font-family: 'Quicksand', sans-serif;
     display: flex;
@@ -6,6 +8,16 @@ body {
     justify-content: center;
     height: 100vh;
 }
+
+p,
+a,
+h1,
+h2 {
+    color: white;
+    text-decoration: none;
+}
+
+/* HEAD PART */
 
 main,
 header h1 {
@@ -18,7 +30,10 @@ header h1 {
     font-size: 40px;
 }
 
+/* LINKS */
+
 a {
+    font-family: 'Quicksand', sans-serif;
     display: block;
     width: 20%;
     margin: 0 auto;

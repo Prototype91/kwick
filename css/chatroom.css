@@ -1,5 +1,15 @@
+/* GENERALS */
+
 * {
     box-sizing: border-box;
+}
+
+p,
+a,
+h1,
+h2 {
+    color: white;
+    text-decoration: none;
 }
 
 /* HEADER */
@@ -28,6 +38,7 @@ main {
 }
 
 #logout {
+    font-family: 'Quicksand', sans-serif;
     display: inline-block;
     margin-bottom: 0;
     font-size: 13px;
@@ -40,6 +51,11 @@ main {
     background-color: blueviolet;
     border: none;
     border-radius: 15px;
+}
+
+#logout:focus,
+#logout:active {
+    outline-style: none;
 }
 
 #status {
@@ -72,20 +88,21 @@ form textarea {
     padding: 10px;
     font-size: 13px;
     color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     transition: box-shadow 0.5s ease;
     resize: none;
 }
 
+/* SENDING BUTTON */
+
 form button {
+    font-family: 'Quicksand', sans-serif;
     align-self: flex-end;
     display: inline-block;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 18px;
-    color: #333333;
     text-align: center;
     vertical-align: middle;
     background-color: white;
@@ -93,6 +110,11 @@ form button {
     padding: 9px 14px;
     border: none;
     border-radius: 15px;
+}
+
+form button:focus,
+form button:active {
+    outline-style: none;
 }
 
 /* RESPONSIVE */
