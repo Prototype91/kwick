@@ -25,17 +25,18 @@
         dataType: 'jsonp'
     })
         // Success
-        .then((response) => {
+        .then(response => {
             // Gets all the messages and pseudo of users
             const talk_list = response.result.talk;
 
-            // Displays all 10 last the messages of users
+            // Displays all 10 last messages of users
             for (let i = talk_list.length - 10; i < talk_list.length; i++) {
                 const msg = talk_list[i].content;
                 const user = talk_list[i].user_name;
                 const timestamp = talk_list[i].timestamp;
 
-                user_data.pseudo === user ?
+                // Checks who has sent the message
+                user_data.pseudo.trim().toLowerCase() === user.trim().toLowerCase() ?
                     $messages.append(`
                 <li>
                     <div class="message-data align-right">
@@ -61,7 +62,7 @@
             };
         })
         // Errors
-        .catch((error) => {
+        .catch(error => {
             console.error(error);
         })
 
@@ -72,7 +73,7 @@
         dataType: 'jsonp'
     })
         // Success
-        .then((response) => {
+        .then(response => {
             // Gets the users array
             const users = response.result.user;
             // Displays all the users logged
@@ -84,18 +85,16 @@
             };
         })
         // Errors
-        .catch((error) => {
+        .catch(error => {
             console.error(error);
         })
 
     // When you click on the sending message button
-    $send_message_form.on('submit', function (e) {
-        sendMessage(e);
-    });
+    $send_message_form.on('submit', event => sendMessage(event));
 
     // Function to send a message
-    const sendMessage = (e) => {
-        e.preventDefault();
+    const sendMessage = event => {
+        event.preventDefault();
         // Gets the message to send
         const message = $('#textarea-input').val();
         // If the message is not empty
@@ -107,21 +106,21 @@
                 dataType: 'jsonp'
             })
                 // Success
-                .then((response) => {
+                .then(response => {
                     // Sets your sent message
                     window.location.reload();
                     // Goes to the bottom to see your message
                     window.scrollTo(0, document.body.scrollHeight);
                 })
                 // Errors
-                .catch((error) => {
+                .catch(error => {
                     console.error(error);
                 })
         }
     }
 
     // Function to convert timestamp
-    const convert_timestamp = (timestamp) => {
+    const convert_timestamp = timestamp => {
         // We set each data
         const date = new Date(timestamp * 1000);
 
@@ -133,12 +132,12 @@
         const minutes = ('0' + date.getMinutes()).slice(-2);
 
         // Returns the full converted date
-        return `${day}/${month}/${year} à ${hours}h${minutes}`
+        return `${day}/${month}/${year} à ${hours}h${minutes}`;
     }
 
     // When you click to logout
-    $logout_button.on('click', (e) => {
-        e.preventDefault();
+    $logout_button.on('click', event => {
+        event.preventDefault();
 
         // Request to logout
         $.ajax({
@@ -147,19 +146,19 @@
             dataType: 'jsonp'
         })
             // Success
-            .then((response) => {
+            .then(response => {
                 $logout_button.remove();
                 // Logout message
                 $('#head-ctn').append(`<p id="status">Déconnexion en cours ...</p>`);
                 // Removes the session storage
                 sessionStorage.removeItem(SESSION_STORAGE_KEY);
-                // Redirect to the homepage
-                setTimeout(function () {
+                // Redirects to the homepage
+                setTimeout(() => {
                     window.location.href = '../index.html';
                 }, 2000);
             })
             // Errors
-            .catch((error) => {
+            .catch(error => {
                 console.error(error);
             })
     })

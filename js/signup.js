@@ -6,13 +6,11 @@
     const $form = $("#signup-form");
 
     // When you submit your registration form
-    $form.on('submit', function (e) {
-        createAccount(e);
-    });
+    $form.on('submit', event => createAccount(event));
 
     // Function to create your account
-    const createAccount = (e) => {
-        e.preventDefault();
+    const createAccount = event => {
+        event.preventDefault();
 
         // Gets values for registration
         const $pseudo = $("#pseudo-input").val();
@@ -25,13 +23,13 @@
             dataType: 'jsonp'
         })
             // Success
-            .then((response) => {
+            .then(response => {
                 // Success message before redirection
                 if (response.result.status !== 'failure') {
                     $('#status') && $('#status').remove();
                     $('#signup-form').append(`<p id="status" class='success'>Succès, redirection vers l'écran de connexion ...</p>`);
                     // Redirect to the login form
-                    setTimeout(function () {
+                    setTimeout(() => {
                         document.location.href = "../public/login.html";
                     }, 2000);
                 } else {
@@ -40,7 +38,7 @@
                 }
             })
             // Errors
-            .catch((error) => {
+            .catch(error => {
                 console.error(error);
             })
     }

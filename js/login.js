@@ -8,13 +8,11 @@
     const $form = $("#login-form");
 
     // When you submit the login form
-    $form.on('submit', function (e) {
-        login(e);
-    });
+    $form.on('submit', event => login(event));
 
     // Function to login
-    const login = (e) => {
-        e.preventDefault();
+    const login = event => {
+        event.preventDefault();
 
         // Gets values of the form
         const $pseudo = $("#pseudo-input").val();
@@ -27,7 +25,7 @@
             dataType: 'jsonp'
         })
             // Success
-            .then((response) => {
+            .then(response => {
                 if (response.result.status !== 'failure') {
                     // Creates an object to put it into the session storage
                     const user_data = {
@@ -44,7 +42,7 @@
                     $('#login').append(`<p id="status" class="success">Succès, redirection en cours ...</p>`);
 
                     // Redirects to the chatroom
-                    setTimeout(function () {
+                    setTimeout(() => {
                         window.location.href = '../private/chatroom.html';
                     }, 2000);
                 } else {
@@ -54,7 +52,7 @@
                 }
             })
             // Errors
-            .catch((error) => {
+            .catch(error => {
                 console.error(error);
             })
     }
